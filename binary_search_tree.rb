@@ -8,17 +8,30 @@ class BST
   def add_node(value)
     if !@root
       @root = Node.new(value)
-      return @root
+    else
+      add_helper(@root, value)
     end
-    add_helper(@root, value)
   end
 
-  def add_helper
+  def add_helper(node, value)
+    if node.value == value
+      return node
+
+    elsif value < node.value
+      if node.left
+        add_helper(node.left, value)
+      else
+        node.left = Node.new(value)
+      end
+
+    else
+      if node.right
+        add_helper(node.right, value)
+      else
+        node.right = Node.new(value)
+      end
+    end
   end
-
-
-
-
 end
 
 class Node
