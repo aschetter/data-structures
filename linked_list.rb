@@ -16,6 +16,19 @@ class LinkedList
     end
   end
 
+  def remove_head
+    if !@head
+      return nil
+    else
+      former_head = @head
+      if @tail == @head
+        @tail = nil
+      end
+      @head = @head.next
+    end
+    former_head
+  end
+
   def add_tail(node)
     if !@head
       @tail = node
