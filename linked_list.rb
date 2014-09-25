@@ -16,6 +16,16 @@ class LinkedList
     end
   end
 
+  def add_tail(node)
+    if !@head
+      @tail = node
+      @head = node
+    else
+      @tail.next = node
+      @tail = node
+    end
+  end
+
 end
 
 class Node
