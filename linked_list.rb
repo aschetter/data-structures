@@ -16,7 +16,9 @@ class LinkedList
     @tail = nil
   end
 
-  def add_head(node)
+  def add_head(value)
+    node = Node.new(value)
+
     if !@head 
       @tail = node
       @head = node
@@ -39,7 +41,9 @@ class LinkedList
     former_head
   end
 
-  def add_tail(node)
+  def add_tail(value)
+    node = Node.new(value)
+    
     if !@head
       @tail = node
       @head = node
