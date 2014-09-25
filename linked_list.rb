@@ -26,6 +26,7 @@ class LinkedList
       node.next = head
       @head = node
     end
+    node.value
   end
 
   def remove_head
@@ -38,12 +39,12 @@ class LinkedList
       end
       @head = @head.next
     end
-    former_head
+    former_head.value
   end
 
   def add_tail(value)
     node = Node.new(value)
-    
+
     if !@head
       @tail = node
       @head = node
@@ -51,6 +52,7 @@ class LinkedList
       @tail.next = node
       @tail = node
     end
+    node.value
   end
 
   def remove_tail
@@ -62,7 +64,7 @@ class LinkedList
       if @tail == @head
         @head =nil
         @tail = nil
-        return former_tail
+        return former_tail.value
       end
 
       node = @head
@@ -77,7 +79,7 @@ class LinkedList
       @tail.next = nil
 
     end
-    former_tail
+    former_tail.value
   end
 
 end
