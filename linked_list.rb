@@ -1,3 +1,13 @@
+class Node
+  attr_reader :value
+  attr_accessor :next
+
+  def initialize(value)
+    @value = value
+    @next = nil
+  end
+end
+
 class LinkedList
   attr_accessor :head, :tail
 
@@ -39,14 +49,31 @@ class LinkedList
     end
   end
 
-end
+  def remove_tail
+    if !@head
+      return nil
+    else
+      former_tail = @tail
 
-class Node
-  attr_reader :value
-  attr_accessor :next
+      if @tail == @head
+        @head =nil
+        @tail = nil
+        return former_tail
+      end
 
-  def initialize(value)
-    @value = value
-    @next = nil
+      node = @head
+      previous_node = nil
+
+      while node.next
+        previous_node = node
+        node = node.next
+      end
+
+      @tail = previous_node
+      @tail.next = nil
+
+    end
+    former_tail
   end
+
 end
