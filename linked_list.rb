@@ -36,8 +36,10 @@ class LinkedList
       former_head = @head
       if @tail == @head
         @tail = nil
+        @head = nil
+      else
+        @head = @head.next
       end
-      @head = @head.next
     end
     former_head.value
   end
